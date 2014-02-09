@@ -1,0 +1,6 @@
+-
+  name: 'Fallback action'
+  uriPattern: ''
+  defaults:
+    '@controller': 'Chat'
+    '@action':     'index'

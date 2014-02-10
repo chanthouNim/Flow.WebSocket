@@ -16,11 +16,9 @@ class Client {
 	public function getId() {
 		return $this->id;
 	}
-
 	public function getSocket() {
 		return $this->socket;
 	}
-
 	public function getHandshake() {
 		return $this->handshake;
 	}

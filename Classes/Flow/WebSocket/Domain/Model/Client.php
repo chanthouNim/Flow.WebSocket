@@ -20,7 +20,7 @@ class Client {
 	protected $id;
 
 	/**
-	 * @var \Socket
+	 * @var string
 	 */
 	protected $socket;
 
@@ -58,7 +58,7 @@ class Client {
 	}
 
 	/**
-	 * @param socket $socket
+	 * @param string $socket
 	 * @return void
 	 */
 	public function setSocket($socket) {

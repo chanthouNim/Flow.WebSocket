@@ -1,4 +1,5 @@
-var wsUri = "ws://127.0.0.1:5003";
+// var wsUri = "ws://127.0.0.1:5003";
+var wsUri = "ws://10.10.2.119:5003";
 var output;
 var otherScreen;
 var websocket;
@@ -16,7 +17,8 @@ window.onload = function() {
 			writeToScreen('Connection successfully' + this.readyState);
 		};
 		websocket.onmessage = function(evt) {
-			writeToScreen(evt.data);
+			sms = '<div class="alert alert-warning alert-dismissable">' + evt.data + '</div>';
+			writeToScreen(sms);
 		};
 		websocket.onclose = function(evt) {
 			if (this.readyState == 2) {
@@ -42,6 +44,7 @@ function sendText() {
 	text = jQuery("#textSend").val();
 	jQuery("#textSend").val('');
 	textNumber = text.replace(/ /g,'');
+	text = '<strong>' + jQuery("#currentUser").val() + '</strong> : '+ text;
 	if (textNumber.length) {
 		websocket.send(text);
 	}
@@ -49,7 +52,7 @@ function sendText() {
 function writeToScreen(message) {
 	var pre = document.createElement("p");
 	pre.style.wordWrap = "break-word";
-	pre.innerHTML = 'someone: ' + message;
+	pre.innerHTML = message;
 	output.appendChild(pre);
 	output.scrollTop = output.scrollHeight;
 }

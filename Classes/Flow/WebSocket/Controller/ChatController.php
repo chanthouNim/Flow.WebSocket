@@ -8,17 +8,22 @@ namespace Flow\WebSocket\Controller;
 
 use TYPO3\Flow\Annotations as Flow;
 
-class ChatController extends \TYPO3\Flow\Mvc\Controller\ActionController {
+class ChatController extends MainController {
 
 	/**
+	 *
+	 * @param array  $user
 	 * @return void
 	 */
-	public function indexAction() {
-		$this->view->assign('foos', array(
-			'bar', 'baz'
-		));
+	public function indexAction($user = NULL) {
+		session_start();
+		if (!empty($user)) {
+			$_SESSION['user']= $user;
+		}
+		if(isset($_SESSION['user'])) {
+			$this->view->assign('currentUser', $_SESSION['user']);
+		}
 	}
-
 }
 
 ?>

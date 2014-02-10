@@ -1,5 +1,13 @@
 -
   name: 'Fallback action'
+  uriPattern: 'chat(/{@action})'
+  defaults:
+    '@controller': 'Chat'
+    '@action':     'index'
+  appendExceedingArguments: true
+
+-
+  name: 'Fallback action'
   uriPattern: ''
   defaults:
     '@controller': 'Chat'

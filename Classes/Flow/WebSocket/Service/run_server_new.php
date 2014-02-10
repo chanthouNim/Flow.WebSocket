@@ -5,7 +5,8 @@ require_once 'Lib/client_class.php';
 
 set_time_limit(0);
 // variables
-$address = '127.0.0.1';
+//$address = '127.0.0.1';
+$address = '10.10.2.119';
 $port = 5003;
 $verboseMode = true;
 $server = new Server($address, $port, $verboseMode);

@@ -32,7 +32,7 @@
 					<h2>Put Your Contact</h2>
 					<f:render partial="FormErrors" arguments="{for: newUser}" />
 					<f:form action="login" name="newUser" method="post" class="backend-login-form form-horizontal">
-						<f:form.textfield class="form-control col-lg-10 col-sm-10" placeholder="Username" id="username" name="username" tabindex="1" />
+						<f:form.textfield class="form-control" placeholder="Username" id="username" name="username" tabindex="1" />
 						<f:form.textfield class="form-control" placeholder="Email" id="email" name="email" tabindex="2" />
 						<f:form.submit class="btn btn-lg btn-primary btn-block" name="submit" value="Login" />
 					</f:form>

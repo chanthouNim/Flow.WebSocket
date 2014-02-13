@@ -54,7 +54,7 @@ class MainController extends ActionController {
 	 * @Flow\Validate(argumentName="email", type="EmailAddress")
 	 * @return void
 	 */
-	public function loginAction($username, $email) {
+	public function loginAction($username = NULL, $email = NULL) {
 		$this->currentUser['username'] = $username;
 		$this->currentUser['email'] = $email;
 		$this->redirect('index', 'Chat', NULL, array('user' => $this->currentUser));

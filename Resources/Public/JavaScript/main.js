@@ -17,7 +17,11 @@ window.onload = function() {
 			writeToScreen('Connection successfully' + this.readyState);
 		};
 		websocket.onmessage = function(evt) {
-			sms = '<div class="alert alert-warning alert-dismissable">' + evt.data + '</div>';
+			text = evt.data;
+			user = text.substring(0, text.indexOf(':') + 1);
+			user = '<strong>' + user + '</strong>';
+			sms = user + text.substring(text.indexOf(':') + 1);
+			sms = '<div class="alert alert-warning alert-dismissable">' + sms + '</div>';
 			writeToScreen(sms);
 		};
 		websocket.onclose = function(evt) {
@@ -44,7 +48,7 @@ function sendText() {
 	text = jQuery("#textSend").val();
 	jQuery("#textSend").val('');
 	textNumber = text.replace(/ /g,'');
-	text = '<strong>' + jQuery("#currentUser").val() + '</strong> : '+ text;
+	text = jQuery("#currentUser").val() + ':'+ text;
 	if (textNumber.length) {
 		websocket.send(text);
 	}
